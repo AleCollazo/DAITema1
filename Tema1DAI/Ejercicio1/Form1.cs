@@ -17,14 +17,38 @@ namespace Ejercicio1
             InitializeComponent();
         }
 
-        
-
-        private void txtPath_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtPath_KeyDown(object sender, KeyEventArgs e)
         {
-            if (((TextBox)sender).Name == txtPath.Name)
+            Console.WriteLine("{0}  -  {1}", e.KeyCode, Keys.Enter);
+            if (e.KeyCode == Keys.Enter)
             {
-                
+                Console.WriteLine("Se pulsó enter");
+                if (((TextBox)sender).Name == txtPath.Name)
+                {
+                    try
+                    {
+                        this.Icon = new Icon(txtPath.Text);
+                        Console.WriteLine("Entró");
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    catch (System.IO.FileNotFoundException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
             }
+        }
+
+        private void Form1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

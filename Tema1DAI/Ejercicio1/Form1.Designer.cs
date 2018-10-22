@@ -28,39 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.txtRojo = new System.Windows.Forms.TextBox();
             this.txtAmarillo = new System.Windows.Forms.TextBox();
             this.txtAzul = new System.Windows.Forms.TextBox();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(197, 214);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 0;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
             // txtRojo
             // 
-            this.txtRojo.Location = new System.Drawing.Point(27, 88);
+            this.txtRojo.Location = new System.Drawing.Point(107, 93);
             this.txtRojo.Name = "txtRojo";
             this.txtRojo.Size = new System.Drawing.Size(40, 20);
             this.txtRojo.TabIndex = 1;
             // 
             // txtAmarillo
             // 
-            this.txtAmarillo.Location = new System.Drawing.Point(27, 115);
+            this.txtAmarillo.Location = new System.Drawing.Point(107, 120);
             this.txtAmarillo.Name = "txtAmarillo";
             this.txtAmarillo.Size = new System.Drawing.Size(40, 20);
             this.txtAmarillo.TabIndex = 2;
             // 
             // txtAzul
             // 
-            this.txtAzul.Location = new System.Drawing.Point(27, 142);
+            this.txtAzul.Location = new System.Drawing.Point(107, 147);
             this.txtAzul.Name = "txtAzul";
             this.txtAzul.Size = new System.Drawing.Size(40, 20);
             this.txtAzul.TabIndex = 3;
@@ -71,7 +61,7 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(227, 20);
             this.txtPath.TabIndex = 4;
-            this.txtPath.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPath_KeyPress);
+            this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPath_KeyDown);
             // 
             // Form1
             // 
@@ -82,17 +72,15 @@
             this.Controls.Add(this.txtAzul);
             this.Controls.Add(this.txtAmarillo);
             this.Controls.Add(this.txtRojo);
-            this.Controls.Add(this.btnSalir);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.TextChanged += new System.EventHandler(this.Form1_TextChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtRojo;
         private System.Windows.Forms.TextBox txtAmarillo;
         private System.Windows.Forms.TextBox txtAzul;
