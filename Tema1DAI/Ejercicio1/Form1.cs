@@ -12,43 +12,55 @@ namespace Ejercicio1
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void txtPath_KeyDown(object sender, KeyEventArgs e)
+        
+
+        
+        private void btnImagen_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("{0}  -  {1}", e.KeyCode, Keys.Enter);
-            if (e.KeyCode == Keys.Enter)
+            try
             {
-                Console.WriteLine("Se pulsó enter");
-                if (((TextBox)sender).Name == txtPath.Name)
-                {
-                    try
-                    {
-                        this.Icon = new Icon(txtPath.Text);
-                        Console.WriteLine("Entró");
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                    catch (UnauthorizedAccessException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                    catch (System.IO.FileNotFoundException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
+                this.BackgroundImage = new Bitmap(txtPath.Text);
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (System.IO.FileNotFoundException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
-        private void Form1_TextChanged(object sender, EventArgs e)
+        private void btnColor_Click(object sender, EventArgs e)
         {
+            
 
+            int[] numsColor = { 255, 255, 255 };
+
+            for (int i = 0; i < 3; i++) {
+                try
+                {
+                    numsColor[i] = Convert.ToInt32(txt.Text);
+                }
+                catch (FormatException) { }
+                catch (OverflowException) { }
+
+                if (numsColor[i] >= 0 && numsColor[i] <= 255)
+                {
+                    
+                }
+            }
+            this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
         }
     }
 }
