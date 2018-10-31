@@ -44,14 +44,15 @@
             this.tbxInfo.Location = new System.Drawing.Point(22, 13);
             this.tbxInfo.Multiline = true;
             this.tbxInfo.Name = "tbxInfo";
-            this.tbxInfo.Size = new System.Drawing.Size(239, 120);
+            this.tbxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxInfo.Size = new System.Drawing.Size(360, 120);
             this.tbxInfo.TabIndex = 0;
             // 
             // tbxPID
             // 
             this.tbxPID.Location = new System.Drawing.Point(23, 157);
             this.tbxPID.Name = "tbxPID";
-            this.tbxPID.Size = new System.Drawing.Size(141, 20);
+            this.tbxPID.Size = new System.Drawing.Size(231, 20);
             this.tbxPID.TabIndex = 1;
             // 
             // btnView
@@ -72,6 +73,7 @@
             this.btnInfo.TabIndex = 3;
             this.btnInfo.Text = "Process Info";
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // btnClose
             // 
@@ -81,6 +83,7 @@
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close Process";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnKill
             // 
@@ -90,21 +93,23 @@
             this.btnKill.TabIndex = 5;
             this.btnKill.Text = "Kill Process";
             this.btnKill.UseVisualStyleBackColor = true;
+            this.btnKill.Click += new System.EventHandler(this.btnKill_Click);
             // 
             // btnRunApp
             // 
-            this.btnRunApp.Location = new System.Drawing.Point(92, 302);
+            this.btnRunApp.Location = new System.Drawing.Point(280, 228);
             this.btnRunApp.Name = "btnRunApp";
             this.btnRunApp.Size = new System.Drawing.Size(102, 23);
             this.btnRunApp.TabIndex = 6;
             this.btnRunApp.Text = "Run App";
             this.btnRunApp.UseVisualStyleBackColor = true;
+            this.btnRunApp.Click += new System.EventHandler(this.btnRunApp_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 350);
+            this.ClientSize = new System.Drawing.Size(404, 350);
             this.Controls.Add(this.btnRunApp);
             this.Controls.Add(this.btnKill);
             this.Controls.Add(this.btnClose);
