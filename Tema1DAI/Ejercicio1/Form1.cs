@@ -43,24 +43,45 @@ namespace Ejercicio1
 
         private void btnColor_Click(object sender, EventArgs e)
         {
-            
-
             int[] numsColor = { 255, 255, 255 };
 
-            for (int i = 0; i < 3; i++) {
-                try
-                {
-                    numsColor[i] = Convert.ToInt32(txt.Text);
-                }
-                catch (FormatException) { }
-                catch (OverflowException) { }
+            bool valido = true;
+            
+            try
+            {
+                numsColor[0] = Convert.ToInt32(txtRojo.Text);
+                numsColor[1] = Convert.ToInt32(txtAmarillo.Text);
+                numsColor[2] = Convert.ToInt32(txtAzul.Text);
+            }
+            catch (FormatException) { }
+            catch (OverflowException) { }
 
-                if (numsColor[i] >= 0 && numsColor[i] <= 255)
+            for (int i = 0; i < 3; i++) {
+                if (numsColor[i] < 0 || numsColor[i] > 255)
                 {
-                    
+                    valido = false;
                 }
             }
-            this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
+
+            if (valido) {
+                this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
+                
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Mi aplicación",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+                ==DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnImg_DragEnter(object sender, DragEventArgs e)
+        {
+            
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio2", "WindowsFormsApplication1\Ejercicio2.csproj", "{1E5BD56E-D109-4696-A3ED-90B4DEAEA6E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio3", "Ejercicio3\Ejercicio3.csproj", "{1842CBC9-D5E9-432D-9096-53BDC239D7EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio4", "Ejercicio4\Ejercicio4.csproj", "{15D750EF-BBCC-4E2E-9AF5-85717D64CB2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{1E5BD56E-D109-4696-A3ED-90B4DEAEA6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E5BD56E-D109-4696-A3ED-90B4DEAEA6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E5BD56E-D109-4696-A3ED-90B4DEAEA6E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1842CBC9-D5E9-432D-9096-53BDC239D7EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1842CBC9-D5E9-432D-9096-53BDC239D7EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1842CBC9-D5E9-432D-9096-53BDC239D7EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1842CBC9-D5E9-432D-9096-53BDC239D7EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D750EF-BBCC-4E2E-9AF5-85717D64CB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D750EF-BBCC-4E2E-9AF5-85717D64CB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D750EF-BBCC-4E2E-9AF5-85717D64CB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D750EF-BBCC-4E2E-9AF5-85717D64CB2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E329C64-59DA-4383-8A91-743BFB35D88A}
 	EndGlobalSection
 EndGlobal
