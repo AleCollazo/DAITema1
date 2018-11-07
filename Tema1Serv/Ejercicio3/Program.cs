@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,29 +8,33 @@ using System.Threading.Tasks;
 
 namespace Ejercicio3
 {
+    public delegate int Incremento(int i);
     class Program
     {
 
 
         static void Main(string[] args)
         {
-            Thread thread = new Thread(decrementacion);
-            thread.Start();
 
-            for (int i = 0; i < 1000; i++)
+            new Thread(()=>
             {
-                Console.Write("{0} ",i);
-            }
+                for (int i = 0; i < 1000; i++)
+                {
+                    Console.Write("{0} ",i);
+                }
+            }).Start();
 
-            Console.Read();
+            new Thread(() =>
+            {
+                for (int i = 0; i > -1000; i--)
+                {
+                    Console.Write("{0} ", i);
+                }
+            }).Start();
+
+            Console.ReadKey();
+
         }
 
-        static void decrementacion()
-        {
-            for (int i = 0; i > -1000; i--)
-            {
-                Console.Write("{0} ", i);
-            }
-        }
     }
 }

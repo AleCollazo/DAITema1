@@ -12,19 +12,20 @@ namespace Ejercicio4
         static readonly private object l = new object();
 
         static int winnerHorseId = -1;
+        static bool flag = true;
 
         static void RunHorse(object horse)
         {
             int avance = 0;
-            bool flag = true;
 
             Random random = ((Horse)horse).Random;
             int idHorse = ((Horse)horse).Id;
+            string dorsalCaballo = (idHorse + 1).ToString();
 
             lock (l)
             {
                 Console.SetCursorPosition(0, idHorse + 3);
-                Console.Write("{0," + avance + "}", "*");
+                Console.Write("{0," + avance + "}", dorsalCaballo);
             }
             Thread.Sleep(random.Next(1000, 5000));
 
@@ -33,7 +34,7 @@ namespace Ejercicio4
                     lock (l) {
                         avance += random.Next(1, 10);
                         Console.SetCursorPosition(0, idHorse + 3);
-                        Console.Write("{0,"+avance+"}", "*");
+                        Console.Write("{0,"+avance+"}", dorsalCaballo);
                         if (avance >= 80)
                         {
                             flag = false;
@@ -46,11 +47,21 @@ namespace Ejercicio4
             }
         }
 
+        static void dibujarMeta()
+        {
+            for (int i = 2; i <= 8; i++)
+            {
+                Console.SetCursorPosition(80, i);
+                Console.Write("|");
+            }
+        }
 
         static void Main(string[] args)
         {
             Random rand = new Random();
             Thread[] horses = new Thread[5];
+
+            dibujarMeta();
 
             for (int i = 0; i < 5; i++)
             {
@@ -63,7 +74,7 @@ namespace Ejercicio4
                 if (winnerHorseId != -1) {
                     Console.SetCursorPosition(0, 20);
                     //Console.WriteLine(winnerHorseId);
-                    Console.WriteLine("El caballo ganador es el caballo número: {0}", winnerHorseId);
+                    Console.WriteLine("El caballo ganador es el caballo número: {0}", winnerHorseId+1);
                     Console.Read();
                 }
             }

@@ -38,6 +38,8 @@
             this.groupBoxFamily = new System.Windows.Forms.GroupBox();
             this.groupBoxColor = new System.Windows.Forms.GroupBox();
             this.tbx = new System.Windows.Forms.TextBox();
+            this.cbxColor = new System.Windows.Forms.CheckBox();
+            this.cbxInvertirColor = new System.Windows.Forms.CheckBox();
             this.groupBoxFamily.SuspendLayout();
             this.groupBoxColor.SuspendLayout();
             this.SuspendLayout();
@@ -50,10 +52,10 @@
             this.radioButtonTimes.Size = new System.Drawing.Size(115, 17);
             this.radioButtonTimes.TabIndex = 0;
             this.radioButtonTimes.TabStop = true;
+            this.radioButtonTimes.Tag = 16;
             this.radioButtonTimes.Text = "Times New Roman";
             this.radioButtonTimes.UseVisualStyleBackColor = true;
             this.radioButtonTimes.CheckedChanged += new System.EventHandler(this.CambioFamiliaFuente);
-            this.radioButtonTimes.Tag = 16;
             // 
             // radioButtonArial
             // 
@@ -63,10 +65,10 @@
             this.radioButtonArial.Size = new System.Drawing.Size(45, 17);
             this.radioButtonArial.TabIndex = 1;
             this.radioButtonArial.TabStop = true;
+            this.radioButtonArial.Tag = 12;
             this.radioButtonArial.Text = "Arial";
             this.radioButtonArial.UseVisualStyleBackColor = true;
             this.radioButtonArial.CheckedChanged += new System.EventHandler(this.CambioFamiliaFuente);
-            this.radioButtonArial.Tag = 12;
             // 
             // radioButtonComic
             // 
@@ -76,10 +78,10 @@
             this.radioButtonComic.Size = new System.Drawing.Size(100, 17);
             this.radioButtonComic.TabIndex = 2;
             this.radioButtonComic.TabStop = true;
+            this.radioButtonComic.Tag = 10;
             this.radioButtonComic.Text = "Comic Sans MS";
             this.radioButtonComic.UseVisualStyleBackColor = true;
-            this.radioButtonComic.CheckedChanged += new System.EventHandler(CambioFamiliaFuente);
-            this.radioButtonComic.Tag = 10;
+            this.radioButtonComic.CheckedChanged += new System.EventHandler(this.CambioFamiliaFuente);
             // 
             // radioButtonRojo
             // 
@@ -92,7 +94,7 @@
             this.radioButtonRojo.TabIndex = 4;
             this.radioButtonRojo.Text = "             ";
             this.radioButtonRojo.UseVisualStyleBackColor = false;
-            this.radioButtonRojo.CheckedChanged += new System.EventHandler(CambioColor);
+            this.radioButtonRojo.CheckedChanged += new System.EventHandler(this.CambioColor);
             // 
             // radioButtonAzul
             // 
@@ -105,7 +107,7 @@
             this.radioButtonAzul.TabIndex = 5;
             this.radioButtonAzul.Text = "             ";
             this.radioButtonAzul.UseVisualStyleBackColor = false;
-            this.radioButtonAzul.CheckedChanged += new System.EventHandler(CambioColor);
+            this.radioButtonAzul.CheckedChanged += new System.EventHandler(this.CambioColor);
             // 
             // radioButtonVerde
             // 
@@ -118,7 +120,7 @@
             this.radioButtonVerde.TabIndex = 6;
             this.radioButtonVerde.Text = "             ";
             this.radioButtonVerde.UseVisualStyleBackColor = false;
-            this.radioButtonVerde.CheckedChanged += new System.EventHandler(CambioColor);
+            this.radioButtonVerde.CheckedChanged += new System.EventHandler(this.CambioColor);
             // 
             // groupBoxFamily
             // 
@@ -152,11 +154,33 @@
             this.tbx.Size = new System.Drawing.Size(292, 134);
             this.tbx.TabIndex = 9;
             // 
+            // cbxColor
+            // 
+            this.cbxColor.AutoSize = true;
+            this.cbxColor.Location = new System.Drawing.Point(42, 342);
+            this.cbxColor.Name = "cbxColor";
+            this.cbxColor.Size = new System.Drawing.Size(80, 17);
+            this.cbxColor.TabIndex = 10;
+            this.cbxColor.Text = "checkBox1";
+            this.cbxColor.UseVisualStyleBackColor = true;
+            // 
+            // cbxInvertirColor
+            // 
+            this.cbxInvertirColor.AutoSize = true;
+            this.cbxInvertirColor.Location = new System.Drawing.Point(42, 366);
+            this.cbxInvertirColor.Name = "cbxInvertirColor";
+            this.cbxInvertirColor.Size = new System.Drawing.Size(80, 17);
+            this.cbxInvertirColor.TabIndex = 11;
+            this.cbxInvertirColor.Text = "checkBox2";
+            this.cbxInvertirColor.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 359);
+            this.ClientSize = new System.Drawing.Size(380, 415);
+            this.Controls.Add(this.cbxInvertirColor);
+            this.Controls.Add(this.cbxColor);
             this.Controls.Add(this.tbx);
             this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.groupBoxFamily);
@@ -183,6 +207,8 @@
         private System.Windows.Forms.GroupBox groupBoxFamily;
         private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.TextBox tbx;
+        private System.Windows.Forms.CheckBox cbxColor;
+        private System.Windows.Forms.CheckBox cbxInvertirColor;
     }
 }
 

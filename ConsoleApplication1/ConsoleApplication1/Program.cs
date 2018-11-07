@@ -31,7 +31,7 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("Opción no válida");
                 }
-                if (op < 1 || op > i) functions[op - 1]();
+                if (op > 0 && op < i) functions[op - 1]();
                 else Console.WriteLine("Opción no válida");
                 if (op == i) Environment.Exit(0);
             } while (true);
