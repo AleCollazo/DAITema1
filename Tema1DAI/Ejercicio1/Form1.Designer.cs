@@ -35,49 +35,47 @@
             this.txtPath = new System.Windows.Forms.TextBox();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtRojo
             // 
-            this.txtRojo.Location = new System.Drawing.Point(116, 110);
-            this.txtRojo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRojo.Location = new System.Drawing.Point(26, 106);
             this.txtRojo.Name = "txtRojo";
-            this.txtRojo.Size = new System.Drawing.Size(52, 22);
+            this.txtRojo.Size = new System.Drawing.Size(40, 20);
             this.txtRojo.TabIndex = 1;
             this.txtRojo.Tag = 0;
             // 
             // txtAmarillo
             // 
-            this.txtAmarillo.Location = new System.Drawing.Point(116, 143);
-            this.txtAmarillo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmarillo.Location = new System.Drawing.Point(26, 133);
             this.txtAmarillo.Name = "txtAmarillo";
-            this.txtAmarillo.Size = new System.Drawing.Size(52, 22);
+            this.txtAmarillo.Size = new System.Drawing.Size(40, 20);
             this.txtAmarillo.TabIndex = 2;
             this.txtAmarillo.Tag = 1;
             // 
             // txtAzul
             // 
-            this.txtAzul.Location = new System.Drawing.Point(116, 176);
-            this.txtAzul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAzul.Location = new System.Drawing.Point(26, 160);
             this.txtAzul.Name = "txtAzul";
-            this.txtAzul.Size = new System.Drawing.Size(52, 22);
+            this.txtAzul.Size = new System.Drawing.Size(40, 20);
             this.txtAzul.TabIndex = 3;
             this.txtAzul.Tag = 2;
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(31, 32);
-            this.txtPath.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPath.Location = new System.Drawing.Point(26, 40);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(301, 22);
+            this.txtPath.Size = new System.Drawing.Size(227, 20);
             this.txtPath.TabIndex = 4;
+            this.txtPath.Text = "C:\\Users\\alex-\\Downloads\\fondo.jpg";
             // 
             // btnColor
             // 
-            this.btnColor.Location = new System.Drawing.Point(433, 139);
-            this.btnColor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnColor.Location = new System.Drawing.Point(325, 131);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(100, 28);
+            this.btnColor.Size = new System.Drawing.Size(75, 23);
             this.btnColor.TabIndex = 5;
             this.btnColor.Text = "Fondo Color";
             this.btnColor.UseVisualStyleBackColor = true;
@@ -85,23 +83,40 @@
             // 
             // btnImg
             // 
-            this.btnImg.Location = new System.Drawing.Point(433, 30);
-            this.btnImg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImg.Location = new System.Drawing.Point(325, 40);
             this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(121, 28);
+            this.btnImg.Size = new System.Drawing.Size(91, 23);
             this.btnImg.TabIndex = 6;
             this.btnImg.Text = "Fondo Imagen";
             this.btnImg.UseVisualStyleBackColor = true;
             this.btnImg.Click += new System.EventHandler(this.btnImagen_Click);
-            this.btnImg.DragEnter += new System.Windows.Forms.DragEventHandler(this.btnImg_DragEnter);
-            this.btnImg.MouseEnter += new System.EventHandler(this.btnColor_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Introduce la ruta de la imagen";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Introduce Color RGB";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(613, 286);
+            this.ClientSize = new System.Drawing.Size(452, 208);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnImg);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.txtPath);
@@ -110,13 +125,12 @@
             this.Controls.Add(this.txtRojo);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Ejercicio 1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,6 +144,8 @@
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.Button btnImg;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

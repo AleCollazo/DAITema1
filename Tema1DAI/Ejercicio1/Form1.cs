@@ -52,6 +52,7 @@ namespace Ejercicio1
                 numsColor[0] = Convert.ToInt32(txtRojo.Text);
                 numsColor[1] = Convert.ToInt32(txtAmarillo.Text);
                 numsColor[2] = Convert.ToInt32(txtAzul.Text);
+                this.BackgroundImage = null;
             }
             catch (FormatException) { }
             catch (OverflowException) { }
@@ -79,9 +80,7 @@ namespace Ejercicio1
             }
         }
 
-        private void btnImg_DragEnter(object sender, DragEventArgs e)
-        {
-            
-        }
+
+
     }
 }
