@@ -11,18 +11,19 @@ using System.Windows.Forms;
 
 namespace Ejercicio4
 {
-    delegate int operacion(int num1, int num2);
+    delegate int? operacion(int num1, int num2);
 
     
 
     public partial class Form1 : Form
     {
-        Hashtable htbOperacion = new Hashtable();
-        operacion opSuma = new operacion(suma);
-        operacion opResta = new operacion(suma);
-        operacion opMultiplicacion = new operacion(suma);
-        operacion opDivision = new operacion(suma);
+        private Hashtable htbOperacion = new Hashtable();
+        private operacion opSuma = new operacion(suma);
+        private operacion opResta = new operacion(resta);
+        private operacion opMultiplicacion = new operacion(multiplicacion);
+        private operacion opDivision = new operacion(division);
 
+        string operacionSeleccionada = "Suma";
 
         public Form1()
         {
@@ -33,9 +34,9 @@ namespace Ejercicio4
             htbOperacion.Add("División", opDivision);
         }
 
-        public static int suma(int num1, int num2) { return num1 + num2; }
-        public static int resta(int num1, int num2) { return num1 - num2; }
-        public static int multiplicacion(int num1, int num2) { return num1 * num2; }
+        public static int? suma(int num1, int num2) { return num1 + num2; }
+        public static int? resta(int num1, int num2) { return num1 - num2; }
+        public static int? multiplicacion(int num1, int num2) { return num1 * num2; }
         public static int? division(int num1, int num2)
         {
             if (num2 == 0)
@@ -48,25 +49,26 @@ namespace Ejercicio4
         
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            lblResultado.Text = ((operacion)htbOperacion[new Form1().checkedRadioButton()])(1,2).ToString();
-        }
 
-        private string checkedRadioButton()
-        {
-            RadioButton[] rbts = { rbtSuma, rbtResta, rbtMultiplicación, rbtDivision};
-
-            string seleccion = "";
-
-            foreach (RadioButton rbt in rbts)
+            try
             {
-                if (rbt.Checked)
-                {
-                    seleccion = rbt.Text;
-                    lblOperador.Text = (string)rbt.Tag;
-                }
-            }
+                int num1 = Convert.ToInt32(tbxNum1.Text);
+                int num2 = Convert.ToInt32(tbxNum2.Text);
 
-            return seleccion;
+                int? resultado = ((operacion)htbOperacion[operacionSeleccionada])(num1, num2);
+
+                lblResultado.Text = string.Format("= {0}", resultado);
+            }
+            catch (FormatException) { lblResultado.Text = "Formato del campo inválido"; }
+            catch (OverflowException) { lblResultado.Text = "Número demasiado grande"; }
         }
+
+        private void cambiarOperacion(object sender, EventArgs e)
+        {
+            lblOperador.Text = (string)((RadioButton)sender).Tag;
+            operacionSeleccionada = (string)((RadioButton)sender).Text;
+        }
+
+       
     }
 }

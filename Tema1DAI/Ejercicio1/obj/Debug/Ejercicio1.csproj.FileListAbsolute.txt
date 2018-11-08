@@ -17,3 +17,13 @@ C:\Users\alex-\Documents\GitsFiles\DAI\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.
 C:\Users\alex-\Documents\GitsFiles\DAI\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.exe.config
 C:\Users\alex-\Documents\GitsFiles\DAI\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.exe
 C:\Users\alex-\Documents\GitsFiles\DAI\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.pdb
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.exe.config
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.exe
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\bin\Debug\Ejercicio1.pdb
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.csprojAssemblyReference.cache
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.Form1.resources
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.Properties.Resources.resources
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.csproj.GenerateResource.cache
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.csproj.CoreCompileInputs.cache
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.exe
+C:\Users\alex-\Documents\GitsFiles\DAI2\Tema1DAI\Ejercicio1\obj\Debug\Ejercicio1.pdb
