@@ -12,15 +12,44 @@ namespace Ejercicio1
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        
+        private void cambioColorFondo()
+        {
+            int[] numsColor = { 255, 255, 255 };
 
-        
+            bool valido = true;
+
+            try
+            {
+                numsColor[0] = Convert.ToInt32(txtRojo.Text);
+                numsColor[1] = Convert.ToInt32(txtAmarillo.Text);
+                numsColor[2] = Convert.ToInt32(txtAzul.Text);
+                this.BackgroundImage = null;
+            }
+            catch (FormatException) { }
+            catch (OverflowException) { }
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (numsColor[i] < 0 || numsColor[i] > 255)
+                {
+                    valido = false;
+                }
+            }
+
+            if (valido)
+            {
+                this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
+
+            }
+        }
+
+
         private void btnImagen_Click(object sender, EventArgs e)
         {
             try
@@ -43,44 +72,42 @@ namespace Ejercicio1
 
         private void btnColor_Click(object sender, EventArgs e)
         {
-            int[] numsColor = { 255, 255, 255 };
-
-            bool valido = true;
-            
-            try
-            {
-                numsColor[0] = Convert.ToInt32(txtRojo.Text);
-                numsColor[1] = Convert.ToInt32(txtAmarillo.Text);
-                numsColor[2] = Convert.ToInt32(txtAzul.Text);
-                this.BackgroundImage = null;
-            }
-            catch (FormatException) { }
-            catch (OverflowException) { }
-
-            for (int i = 0; i < 3; i++) {
-                if (numsColor[i] < 0 || numsColor[i] > 255)
-                {
-                    valido = false;
-                }
-            }
-
-            if (valido) {
-                this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
-                
-            }
+            this.cambioColorFondo();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Mi aplicación",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
-                ==DialogResult.Cancel)
+                == DialogResult.Cancel)
             {
                 e.Cancel = true;
             }
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void salir_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
 
+        private void salirCambioRGB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.cambioColorFondo();
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
     }
 }

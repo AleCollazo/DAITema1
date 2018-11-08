@@ -17,6 +17,11 @@ namespace Ejercicio3
             InitializeComponent();
         }
 
-        
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            string path = new Form1().getPathImagen();
+            
+            this.Text = path.Split('\\').Last();
+        }
     }
 }

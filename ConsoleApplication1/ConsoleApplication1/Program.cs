@@ -22,6 +22,12 @@ namespace ConsoleApplication1
                 try
                 {
                     op = Convert.ToInt32(Console.ReadLine());
+                    if (op > 0 && op < i)
+                        functions[op - 1]();
+                    else 
+                        if (op != i)
+                    
+                            Console.WriteLine("Opción no válida");
                 }
                 catch (FormatException)
                 {
@@ -31,10 +37,9 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("Opción no válida");
                 }
-                if (op > 0 && op < i) functions[op - 1]();
-                else Console.WriteLine("Opción no válida");
-                if (op == i) Environment.Exit(0);
-            } while (true);
+                
+                //if (op == i) return;// Environment.Exit(0);
+            } while (op != i);
             
             
         }
@@ -54,8 +59,8 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
-            MenuGenerator(new string[] { "Op1", "Op2", "Op3" },
-                new MyDelegate[] { f1, f2, f3});
+            MenuGenerator(new string[] { "Op1", "Op2", "Op3", "op4" },
+                new MyDelegate[] { f1, f2, f3, ()=>Console.WriteLine("boo")});
 
             Console.ReadKey();
         }

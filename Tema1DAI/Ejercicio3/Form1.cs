@@ -50,5 +50,10 @@ namespace Ejercicio3
             }
             catch (ArgumentException){ }
         }
+
+        public string getPathImagen()
+        {
+            return tbxPath.Text;
+        }
     }
 }

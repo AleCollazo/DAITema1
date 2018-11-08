@@ -37,15 +37,17 @@
             this.btnImg = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtRojo
             // 
-            this.txtRojo.Location = new System.Drawing.Point(26, 106);
+            this.txtRojo.Location = new System.Drawing.Point(26, 107);
             this.txtRojo.Name = "txtRojo";
             this.txtRojo.Size = new System.Drawing.Size(40, 20);
             this.txtRojo.TabIndex = 1;
             this.txtRojo.Tag = 0;
+            this.txtRojo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salirCambioRGB_KeyDown);
             // 
             // txtAmarillo
             // 
@@ -54,6 +56,7 @@
             this.txtAmarillo.Size = new System.Drawing.Size(40, 20);
             this.txtAmarillo.TabIndex = 2;
             this.txtAmarillo.Tag = 1;
+            this.txtAmarillo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salirCambioRGB_KeyDown);
             // 
             // txtAzul
             // 
@@ -62,6 +65,7 @@
             this.txtAzul.Size = new System.Drawing.Size(40, 20);
             this.txtAzul.TabIndex = 3;
             this.txtAzul.Tag = 2;
+            this.txtAzul.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salirCambioRGB_KeyDown);
             // 
             // txtPath
             // 
@@ -70,6 +74,7 @@
             this.txtPath.Size = new System.Drawing.Size(227, 20);
             this.txtPath.TabIndex = 4;
             this.txtPath.Text = "C:\\Users\\alex-\\Downloads\\fondo.jpg";
+            this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
             // 
             // btnColor
             // 
@@ -80,6 +85,7 @@
             this.btnColor.Text = "Fondo Color";
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            this.btnColor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
             // 
             // btnImg
             // 
@@ -90,10 +96,12 @@
             this.btnImg.Text = "Fondo Imagen";
             this.btnImg.UseVisualStyleBackColor = true;
             this.btnImg.Click += new System.EventHandler(this.btnImagen_Click);
+            this.btnImg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(23, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 13);
@@ -103,18 +111,31 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(23, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Introduce Color RGB";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(325, 190);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 9;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(452, 208);
+            this.ClientSize = new System.Drawing.Size(452, 232);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnImg);
@@ -132,6 +153,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ejercicio 1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,6 +168,7 @@
         private System.Windows.Forms.Button btnImg;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
 

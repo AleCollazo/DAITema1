@@ -28,96 +28,145 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.tbxNum1 = new System.Windows.Forms.TextBox();
+            this.tbxNum2 = new System.Windows.Forms.TextBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.rbtSuma = new System.Windows.Forms.RadioButton();
+            this.rbtResta = new System.Windows.Forms.RadioButton();
+            this.rbtMultiplicación = new System.Windows.Forms.RadioButton();
+            this.rbtDivision = new System.Windows.Forms.RadioButton();
+            this.lblOperador = new System.Windows.Forms.Label();
+            this.lblResultado = new System.Windows.Forms.Label();
+            this.gbxOperadores = new System.Windows.Forms.GroupBox();
+            this.gbxOperadores.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbxNum1
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 0;
+            this.tbxNum1.Location = new System.Drawing.Point(56, 43);
+            this.tbxNum1.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxNum1.Name = "tbxNum1";
+            this.tbxNum1.Size = new System.Drawing.Size(76, 20);
+            this.tbxNum1.TabIndex = 0;
             // 
-            // textBox2
+            // tbxNum2
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 1;
+            this.tbxNum2.Location = new System.Drawing.Point(56, 130);
+            this.tbxNum2.Margin = new System.Windows.Forms.Padding(2);
+            this.tbxNum2.Name = "tbxNum2";
+            this.tbxNum2.Size = new System.Drawing.Size(76, 20);
+            this.tbxNum2.TabIndex = 1;
             // 
-            // button1
+            // btnCalcular
             // 
-            this.button1.Location = new System.Drawing.Point(96, 201);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCalcular.Location = new System.Drawing.Point(143, 221);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(76, 25);
+            this.btnCalcular.TabIndex = 2;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
-            // radioButton1
+            // rbtSuma
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(418, 53);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(110, 21);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtSuma.AutoSize = true;
+            this.rbtSuma.Checked = true;
+            this.rbtSuma.Location = new System.Drawing.Point(22, 27);
+            this.rbtSuma.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtSuma.Name = "rbtSuma";
+            this.rbtSuma.Size = new System.Drawing.Size(52, 17);
+            this.rbtSuma.TabIndex = 3;
+            this.rbtSuma.TabStop = true;
+            this.rbtSuma.Text = "Suma";
+            this.rbtSuma.UseVisualStyleBackColor = true;
+            this.rbtSuma.Tag = "+";
             // 
-            // radioButton2
+            // rbtResta
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(418, 96);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(110, 21);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtResta.AutoSize = true;
+            this.rbtResta.Location = new System.Drawing.Point(22, 62);
+            this.rbtResta.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtResta.Name = "rbtResta";
+            this.rbtResta.Size = new System.Drawing.Size(53, 17);
+            this.rbtResta.TabIndex = 4;
+            this.rbtResta.Text = "Resta";
+            this.rbtResta.UseVisualStyleBackColor = true;
+            this.rbtResta.Tag = "-";
             // 
-            // radioButton3
+            // rbtMultiplicación
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(418, 143);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(110, 21);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbtMultiplicación.AutoSize = true;
+            this.rbtMultiplicación.Location = new System.Drawing.Point(22, 100);
+            this.rbtMultiplicación.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtMultiplicación.Name = "rbtMultiplicación";
+            this.rbtMultiplicación.Size = new System.Drawing.Size(89, 17);
+            this.rbtMultiplicación.TabIndex = 5;
+            this.rbtMultiplicación.Text = "Multiplicación";
+            this.rbtMultiplicación.UseVisualStyleBackColor = true;
+            this.rbtMultiplicación.Tag = "*";
             // 
-            // radioButton4
+            // rbtDivision
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(418, 188);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(110, 21);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbtDivision.AutoSize = true;
+            this.rbtDivision.Location = new System.Drawing.Point(22, 137);
+            this.rbtDivision.Margin = new System.Windows.Forms.Padding(2);
+            this.rbtDivision.Name = "rbtDivision";
+            this.rbtDivision.Size = new System.Drawing.Size(62, 17);
+            this.rbtDivision.TabIndex = 6;
+            this.rbtDivision.Text = "División";
+            this.rbtDivision.UseVisualStyleBackColor = true;
+            this.rbtDivision.Tag = "/";
+            // 
+            // lblOperador
+            // 
+            this.lblOperador.AutoSize = true;
+            this.lblOperador.Location = new System.Drawing.Point(85, 87);
+            this.lblOperador.Name = "lblOperador";
+            this.lblOperador.Size = new System.Drawing.Size(13, 13);
+            this.lblOperador.TabIndex = 7;
+            this.lblOperador.Text = "+";
+            // 
+            // lblResultado
+            // 
+            this.lblResultado.AutoSize = true;
+            this.lblResultado.Location = new System.Drawing.Point(88, 177);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(13, 13);
+            this.lblResultado.TabIndex = 8;
+            this.lblResultado.Text = "=";
+            // 
+            // gbxOperadores
+            // 
+            this.gbxOperadores.Controls.Add(this.rbtMultiplicación);
+            this.gbxOperadores.Controls.Add(this.rbtSuma);
+            this.gbxOperadores.Controls.Add(this.rbtResta);
+            this.gbxOperadores.Controls.Add(this.rbtDivision);
+            this.gbxOperadores.Location = new System.Drawing.Point(200, 25);
+            this.gbxOperadores.Name = "gbxOperadores";
+            this.gbxOperadores.Size = new System.Drawing.Size(135, 165);
+            this.gbxOperadores.TabIndex = 9;
+            this.gbxOperadores.TabStop = false;
+            this.gbxOperadores.Text = "Operadores";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(385, 268);
+            this.Controls.Add(this.gbxOperadores);
+            this.Controls.Add(this.lblResultado);
+            this.Controls.Add(this.lblOperador);
+            this.Controls.Add(this.btnCalcular);
+            this.Controls.Add(this.tbxNum2);
+            this.Controls.Add(this.tbxNum1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Calculadora";
+            this.gbxOperadores.ResumeLayout(false);
+            this.gbxOperadores.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,13 +174,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.TextBox tbxNum1;
+        private System.Windows.Forms.TextBox tbxNum2;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.RadioButton rbtSuma;
+        private System.Windows.Forms.RadioButton rbtResta;
+        private System.Windows.Forms.RadioButton rbtMultiplicación;
+        private System.Windows.Forms.RadioButton rbtDivision;
+        private System.Windows.Forms.Label lblOperador;
+        private System.Windows.Forms.Label lblResultado;
+        private System.Windows.Forms.GroupBox gbxOperadores;
     }
 }
 

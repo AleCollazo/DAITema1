@@ -50,8 +50,13 @@ namespace Ejercicio2
             {
                 btnDerecho.BackColor = Color.BlueViolet;
             }
-            if (MouseButtons.Left.Equals(e.Button))
+            else if (MouseButtons.Left.Equals(e.Button))
             {
+                btnIzquierdo.BackColor = Color.BlueViolet;
+            }
+            else
+            {
+                btnDerecho.BackColor = Color.BlueViolet;
                 btnIzquierdo.BackColor = Color.BlueViolet;
             }
         }
