@@ -39,31 +39,32 @@
             this.lblOperador = new System.Windows.Forms.Label();
             this.lblResultado = new System.Windows.Forms.Label();
             this.gbxOperadores = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbxOperadores.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxNum1
             // 
-            this.tbxNum1.Location = new System.Drawing.Point(75, 53);
-            this.tbxNum1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxNum1.Location = new System.Drawing.Point(56, 43);
+            this.tbxNum1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxNum1.Name = "tbxNum1";
-            this.tbxNum1.Size = new System.Drawing.Size(100, 22);
+            this.tbxNum1.Size = new System.Drawing.Size(76, 20);
             this.tbxNum1.TabIndex = 0;
             // 
             // tbxNum2
             // 
-            this.tbxNum2.Location = new System.Drawing.Point(75, 160);
-            this.tbxNum2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbxNum2.Location = new System.Drawing.Point(56, 130);
+            this.tbxNum2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbxNum2.Name = "tbxNum2";
-            this.tbxNum2.Size = new System.Drawing.Size(100, 22);
+            this.tbxNum2.Size = new System.Drawing.Size(76, 20);
             this.tbxNum2.TabIndex = 1;
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(191, 272);
-            this.btnCalcular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCalcular.Location = new System.Drawing.Point(381, 69);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(101, 31);
+            this.btnCalcular.Size = new System.Drawing.Size(76, 73);
             this.btnCalcular.TabIndex = 2;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -73,10 +74,10 @@
             // 
             this.rbtSuma.AutoSize = true;
             this.rbtSuma.Checked = true;
-            this.rbtSuma.Location = new System.Drawing.Point(29, 33);
-            this.rbtSuma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtSuma.Location = new System.Drawing.Point(22, 27);
+            this.rbtSuma.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtSuma.Name = "rbtSuma";
-            this.rbtSuma.Size = new System.Drawing.Size(65, 21);
+            this.rbtSuma.Size = new System.Drawing.Size(52, 17);
             this.rbtSuma.TabIndex = 3;
             this.rbtSuma.TabStop = true;
             this.rbtSuma.Tag = "+";
@@ -87,10 +88,10 @@
             // rbtResta
             // 
             this.rbtResta.AutoSize = true;
-            this.rbtResta.Location = new System.Drawing.Point(29, 76);
-            this.rbtResta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtResta.Location = new System.Drawing.Point(22, 62);
+            this.rbtResta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtResta.Name = "rbtResta";
-            this.rbtResta.Size = new System.Drawing.Size(66, 21);
+            this.rbtResta.Size = new System.Drawing.Size(53, 17);
             this.rbtResta.TabIndex = 4;
             this.rbtResta.Tag = "-";
             this.rbtResta.Text = "Resta";
@@ -100,10 +101,10 @@
             // rbtMultiplicación
             // 
             this.rbtMultiplicación.AutoSize = true;
-            this.rbtMultiplicación.Location = new System.Drawing.Point(29, 123);
-            this.rbtMultiplicación.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtMultiplicación.Location = new System.Drawing.Point(22, 100);
+            this.rbtMultiplicación.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtMultiplicación.Name = "rbtMultiplicación";
-            this.rbtMultiplicación.Size = new System.Drawing.Size(113, 21);
+            this.rbtMultiplicación.Size = new System.Drawing.Size(89, 17);
             this.rbtMultiplicación.TabIndex = 5;
             this.rbtMultiplicación.Tag = "*";
             this.rbtMultiplicación.Text = "Multiplicación";
@@ -113,10 +114,10 @@
             // rbtDivision
             // 
             this.rbtDivision.AutoSize = true;
-            this.rbtDivision.Location = new System.Drawing.Point(29, 169);
-            this.rbtDivision.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtDivision.Location = new System.Drawing.Point(22, 137);
+            this.rbtDivision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtDivision.Name = "rbtDivision";
-            this.rbtDivision.Size = new System.Drawing.Size(78, 21);
+            this.rbtDivision.Size = new System.Drawing.Size(62, 17);
             this.rbtDivision.TabIndex = 6;
             this.rbtDivision.Tag = "/";
             this.rbtDivision.Text = "División";
@@ -126,22 +127,21 @@
             // lblOperador
             // 
             this.lblOperador.AutoSize = true;
-            this.lblOperador.Location = new System.Drawing.Point(113, 107);
-            this.lblOperador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOperador.Location = new System.Drawing.Point(85, 87);
             this.lblOperador.Name = "lblOperador";
-            this.lblOperador.Size = new System.Drawing.Size(16, 17);
+            this.lblOperador.Size = new System.Drawing.Size(13, 13);
             this.lblOperador.TabIndex = 7;
             this.lblOperador.Text = "+";
             // 
             // lblResultado
             // 
             this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(117, 218);
-            this.lblResultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResultado.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.lblResultado.Location = new System.Drawing.Point(53, 211);
+            this.lblResultado.MaximumSize = new System.Drawing.Size(0, 13);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(16, 17);
+            this.lblResultado.Size = new System.Drawing.Size(0, 13);
             this.lblResultado.TabIndex = 8;
-            this.lblResultado.Text = "=";
             // 
             // gbxOperadores
             // 
@@ -149,20 +149,28 @@
             this.gbxOperadores.Controls.Add(this.rbtSuma);
             this.gbxOperadores.Controls.Add(this.rbtResta);
             this.gbxOperadores.Controls.Add(this.rbtDivision);
-            this.gbxOperadores.Location = new System.Drawing.Point(267, 31);
-            this.gbxOperadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbxOperadores.Location = new System.Drawing.Point(200, 25);
             this.gbxOperadores.Name = "gbxOperadores";
-            this.gbxOperadores.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.gbxOperadores.Size = new System.Drawing.Size(180, 203);
+            this.gbxOperadores.Size = new System.Drawing.Size(135, 165);
             this.gbxOperadores.TabIndex = 9;
             this.gbxOperadores.TabStop = false;
             this.gbxOperadores.Text = "Operadores";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(85, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "=";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 330);
+            this.ClientSize = new System.Drawing.Size(503, 268);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxOperadores);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.lblOperador);
@@ -170,7 +178,7 @@
             this.Controls.Add(this.tbxNum2);
             this.Controls.Add(this.tbxNum1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Calculadora";
             this.gbxOperadores.ResumeLayout(false);
@@ -192,6 +200,7 @@
         private System.Windows.Forms.Label lblOperador;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.GroupBox gbxOperadores;
+        private System.Windows.Forms.Label label1;
     }
 }
 

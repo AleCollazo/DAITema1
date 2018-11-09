@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Ejercicio4
 {
-    delegate int? operacion(int num1, int num2);
+    delegate double? operacion(double num1, double num2);
 
     
 
@@ -34,10 +34,10 @@ namespace Ejercicio4
             htbOperacion.Add("División", opDivision);
         }
 
-        public static int? suma(int num1, int num2) { return num1 + num2; }
-        public static int? resta(int num1, int num2) { return num1 - num2; }
-        public static int? multiplicacion(int num1, int num2) { return num1 * num2; }
-        public static int? division(int num1, int num2)
+        public static double? suma(double num1, double num2) { return num1 + num2; }
+        public static double? resta(double num1, double num2) { return num1 - num2; }
+        public static double? multiplicacion(double num1, double num2) { return num1 * num2; }
+        public static double? division(double num1, double num2)
         {
             if (num2 == 0)
             {
@@ -52,21 +52,21 @@ namespace Ejercicio4
 
             try
             {
-                int num1 = Convert.ToInt32(tbxNum1.Text);
-                int num2 = Convert.ToInt32(tbxNum2.Text);
+                double num1 = Convert.ToDouble(tbxNum1.Text);
+                double num2 = Convert.ToDouble(tbxNum2.Text);
 
-                int? resultado = ((operacion)htbOperacion[operacionSeleccionada])(num1, num2);
+                double? resultado = ((operacion)htbOperacion[operacionSeleccionada])(num1, num2);
 
-                lblResultado.Text = string.Format("= {0}", resultado);
+                lblResultado.Text = string.Format("{0}", resultado);
             }
-            catch (FormatException) { lblResultado.Text = "Formato del campo inválido"; }
-            catch (OverflowException) { lblResultado.Text = "Número demasiado grande"; }
+            catch (FormatException) { MessageBox.Show("Formato del campo inválido", "Formato inválido", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException) {  }
         }
 
         private void cambiarOperacion(object sender, EventArgs e)
         {
             lblOperador.Text = (string)((RadioButton)sender).Tag;
-            operacionSeleccionada = (string)((RadioButton)sender).Text;
+            operacionSeleccionada = ((RadioButton)sender).Text;
         }
 
        

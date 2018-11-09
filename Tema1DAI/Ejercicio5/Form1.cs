@@ -12,13 +12,15 @@ namespace Ejercicio5
 {
     public partial class Form1 : Form
     {
-        int tbxHeightInit;
-        int tbxWidthInit;
+        private int tbxHeightInit;
+        private int tbxWidthInit;
 
-        int formHeightMin;
-        int formWidthMin;
+        private int formHeightMin;
+        private int formWidthMin;
 
-        bool init = false;
+        private bool init = false;
+
+        private static TextBox texBoxForm1;
 
         public Form1()
         {
@@ -28,12 +30,13 @@ namespace Ejercicio5
             tbxWidthInit = tbx.Width;
             formHeightMin = this.Height;
             formWidthMin = this.Width;
+            texBoxForm1 = tbx;
         }
 
         private void cambioFamiliaFuente(object sender, EventArgs e)
         {
             RadioButton rbt = (RadioButton)sender;
-            tbx.Font = new System.Drawing.Font(rbt.Text, (int)rbt.Tag);
+            tbx.Font = new Font(rbt.Text, (int)rbt.Tag);
         }
 
         private void cambioColorFuente(object sender, EventArgs e)
@@ -117,14 +120,30 @@ namespace Ejercicio5
             new Form2().Show();
         }
 
-        public int getInicioSeleccion()
+        public static void modificarSeleccion(int inicio, int longitud)
         {
-            return tbx.SelectionStart;
+            try
+            {
+                texBoxForm1.SelectionStart = inicio;
+                texBoxForm1.SelectionLength = longitud;
+                texBoxForm1.Focus();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Valores inválidos. No se corresponde con la longitude del texto.", 
+                                "Fuera de rango", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public int getLongitudSeleccion()
+        public static int getInicioSeleccion()
         {
-            return tbx.SelectionLength;
+            return texBoxForm1.SelectionStart;
         }
+
+        public static int getLongitudSeleccion()
+        {
+            return texBoxForm1.SelectionLength;
+        }
+
     }
 }

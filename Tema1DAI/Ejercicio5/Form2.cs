@@ -19,13 +19,23 @@ namespace Ejercicio5
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int inicioSeleccion = 0, longitudSeleccion = 0;
 
+            try
+            {
+                inicioSeleccion = Convert.ToInt32(tbxInicio.Text);
+                longitudSeleccion = Convert.ToInt32(tbxSeleccion.Text);
+            }
+            catch (FormatException) { MessageBox.Show("Introduce valores numéricos enteros.", "Valor numérico", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException) {  }
+
+            Form1.modificarSeleccion(inicioSeleccion, longitudSeleccion);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            tbxInicio.Text = new Form1().getInicioSeleccion().ToString();
-            tbxSeleccion.Text = new Form1().getLongitudSeleccion().ToString();
+            tbxInicio.Text = Form1.getInicioSeleccion().ToString();
+            tbxSeleccion.Text = Form1.getLongitudSeleccion().ToString();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Ejercicio1
         {
             int[] numsColor = { 255, 255, 255 };
 
-            bool valido = true;
+            //bool valido = true;
 
             try
             {
@@ -30,23 +30,29 @@ namespace Ejercicio1
                 numsColor[1] = Convert.ToInt32(txtAmarillo.Text);
                 numsColor[2] = Convert.ToInt32(txtAzul.Text);
                 this.BackgroundImage = null;
-            }
-            catch (FormatException) { }
-            catch (OverflowException) { }
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (numsColor[i] < 0 || numsColor[i] > 255)
-                {
-                    valido = false;
-                }
-            }
-
-            if (valido)
-            {
                 this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
-
             }
+            catch (FormatException) { MessageBox.Show("Introduce valores numéricos", "Formato inválido", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //catch (OverflowException) { }
+            catch (ArgumentException) { MessageBox.Show("Introduce valores entre 0 y 255", "Fuera de rango", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    if (numsColor[i] < 0 || numsColor[i] > 255)
+            //    {
+            //        valido = false;
+            //    }
+            //}
+
+            //if (valido)
+            //{
+            //    this.BackColor = Color.FromArgb(numsColor[0], numsColor[1], numsColor[2]);
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Introduce valores entre 0 y 255", "Formato inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
 
@@ -58,15 +64,15 @@ namespace Ejercicio1
             }
             catch (ArgumentException ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("Campo introducido no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (UnauthorizedAccessException ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("No tiene el permiso de acceso", "Sin permiso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (System.IO.FileNotFoundException ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show("Documento no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

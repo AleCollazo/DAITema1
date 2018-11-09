@@ -46,9 +46,12 @@ namespace Ejercicio3
             }
             catch (System.IO.FileNotFoundException)
             {
-
+                MessageBox.Show("Archivo no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentException){ }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Campo introducido no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public string getPathImagen()
