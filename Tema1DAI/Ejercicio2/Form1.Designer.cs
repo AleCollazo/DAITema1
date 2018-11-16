@@ -1,4 +1,4 @@
-﻿#define teclaChar
+﻿
 
 namespace Ejercicio2
 {
@@ -38,7 +38,7 @@ namespace Ejercicio2
             // btnIzquierdo
             // 
             this.btnIzquierdo.Location = new System.Drawing.Point(77, 113);
-            this.btnIzquierdo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIzquierdo.Margin = new System.Windows.Forms.Padding(2);
             this.btnIzquierdo.Name = "btnIzquierdo";
             this.btnIzquierdo.Size = new System.Drawing.Size(160, 106);
             this.btnIzquierdo.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace Ejercicio2
             // btnDerecho
             // 
             this.btnDerecho.Location = new System.Drawing.Point(362, 113);
-            this.btnDerecho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDerecho.Margin = new System.Windows.Forms.Padding(2);
             this.btnDerecho.Name = "btnDerecho";
             this.btnDerecho.Size = new System.Drawing.Size(160, 106);
             this.btnDerecho.TabIndex = 1;
@@ -66,10 +66,11 @@ namespace Ejercicio2
             this.Controls.Add(this.btnIzquierdo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Mouse Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);

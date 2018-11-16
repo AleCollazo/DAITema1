@@ -32,10 +32,10 @@ namespace Ejercicio5
             t.Interval = 1000;
             string op = "";
 
+            Console.WriteLine("Press any key to start");
+            Console.ReadKey();
             do
             {
-                Console.WriteLine("Press any key to start");
-                Console.ReadKey();
                 t.star();
                 Console.Clear();
                 Console.WriteLine("Press any key to stop");
@@ -43,7 +43,7 @@ namespace Ejercicio5
                 t.stop();
                 Console.Clear();
                 pintarCounter();
-                Console.WriteLine("Press 1 to restart or Enter to end");
+                Console.WriteLine("Press 1 to continue or Enter to end");
                 op = Console.ReadLine();
                 Console.Clear();
                 pintarCounter();

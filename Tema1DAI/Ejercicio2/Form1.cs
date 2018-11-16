@@ -80,9 +80,14 @@ namespace Ejercicio2
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.Text = e.KeyChar.ToString();
+            
         }
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e){}
+
 #else
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e) { }
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (Keys.Escape.Equals(e.KeyCode))

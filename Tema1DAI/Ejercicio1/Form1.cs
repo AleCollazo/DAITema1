@@ -13,6 +13,8 @@ namespace Ejercicio1
     public partial class Form1 : Form
     {
 
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -62,15 +64,15 @@ namespace Ejercicio1
             {
                 this.BackgroundImage = new Bitmap(txtPath.Text);
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException )
             {
                 MessageBox.Show("Campo introducido no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
                 MessageBox.Show("No tiene el permiso de acceso", "Sin permiso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (System.IO.FileNotFoundException ex)
+            catch (System.IO.FileNotFoundException )
             {
                 MessageBox.Show("Documento no válido", "Inválido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -96,24 +98,35 @@ namespace Ejercicio1
             this.Close();
         }
 
+        private void cambioColorBoton(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = Color.Aquamarine;
+        }
+
+        private void restaurarColorBoton(object sender, EventArgs e)
+        {
+            ((Button)sender).BackColor = DefaultBackColor;
+        }
+
         private void salir_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
+            
+            //if (e.KeyCode == Keys.Escape)
+            //{
+            //    this.Close();
+            //}
         }
 
         private void salirCambioRGB_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.cambioColorFondo();
-            }
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    this.cambioColorFondo();
+            //}
+            //if (e.KeyCode == Keys.Escape)
+            //{
+            //    this.Close();
+            //}
         }
     }
 }

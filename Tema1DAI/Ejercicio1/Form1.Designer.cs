@@ -92,6 +92,9 @@
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
             this.btnColor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
+            this.btnColor.MouseEnter += new System.EventHandler(this.cambioColorBoton);
+            this.btnColor.MouseLeave += new System.EventHandler(this.restaurarColorBoton);
+            this.AcceptButton = this.btnColor;
             // 
             // btnImg
             // 
@@ -103,6 +106,8 @@
             this.btnImg.UseVisualStyleBackColor = true;
             this.btnImg.Click += new System.EventHandler(this.btnImagen_Click);
             this.btnImg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
+            this.btnImg.MouseEnter += new System.EventHandler(this.cambioColorBoton);
+            this.btnImg.MouseLeave += new System.EventHandler(this.restaurarColorBoton);
             // 
             // label1
             // 
@@ -134,6 +139,9 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             this.btnSalir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.salir_KeyDown);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.cambioColorBoton);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.restaurarColorBoton);
+            this.CancelButton = this.btnSalir;
             // 
             // label3
             // 

@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 Process process = Process.GetProcessById(Convert.ToInt32(tbxPID.Text));
@@ -63,15 +63,16 @@ namespace WindowsFormsApplication1
                 tbxInfo.Text += string.Format("{0} \r\n", "Modules:");
                 foreach (ProcessModule m in modules)
                 {
-                    tbxInfo.Text += string.Format(FORMAT_MODULE, 
-                       m.ModuleName.Length > 20 ? m.ModuleName.Substring(0,20) : m.ModuleName,
-                       m.FileName.Length > 20 ? m.FileName.Substring(m.FileName.Length -20, 20) : m.FileName);
+                    tbxInfo.Text += string.Format(FORMAT_MODULE,
+                       m.ModuleName.Length > 20 ? m.ModuleName.Substring(0, 20) : m.ModuleName,
+                       m.FileName.Length > 20 ? m.FileName.Substring(m.FileName.Length - 20, 20) : m.FileName);
                 }
             }
-            catch (ArgumentException) { }
-            catch (InvalidOperationException) { }
-            catch (FormatException) { }
-            catch (OverflowException) { }
+            catch (ArgumentException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (InvalidOperationException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (FormatException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Win32Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -81,10 +82,11 @@ namespace WindowsFormsApplication1
                 Process process = Process.GetProcessById(Convert.ToInt32(tbxPID.Text));
                 process.CloseMainWindow();
             }
-            catch (ArgumentException) { }
-            catch (InvalidOperationException) { }
-            catch (FormatException) { }
-            catch (OverflowException) { }
+            catch (ArgumentException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (InvalidOperationException ex ) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (FormatException ex ) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException ex ) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Win32Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnKill_Click(object sender, EventArgs e)
@@ -94,10 +96,11 @@ namespace WindowsFormsApplication1
                 Process process = Process.GetProcessById(Convert.ToInt32(tbxPID.Text));
                 process.Kill();
             }
-            catch (ArgumentException) { }
-            catch (InvalidOperationException) { }
-            catch (FormatException) { }
-            catch (OverflowException) { }
+            catch (ArgumentException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (InvalidOperationException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (FormatException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (OverflowException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Win32Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnRunApp_Click(object sender, EventArgs e)
@@ -111,9 +114,10 @@ namespace WindowsFormsApplication1
 
                 else Process.Start(textIn[0], textIn[1]);
             }
-            catch (Win32Exception) { }
-            catch (ObjectDisposedException) { }
-            catch (System.IO.FileNotFoundException) { }
+            catch (Win32Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (ObjectDisposedException ex ) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (System.IO.FileNotFoundException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (InvalidOperationException ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }
