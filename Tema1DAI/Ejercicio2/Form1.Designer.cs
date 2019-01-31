@@ -55,7 +55,7 @@ namespace Ejercicio2
             this.btnDerecho.TabIndex = 1;
             this.btnDerecho.Text = "Derecho";
             this.btnDerecho.UseVisualStyleBackColor = true;
-            this.btnDerecho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
+            this.btnDerecho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
             // 
             // Form1
             // 

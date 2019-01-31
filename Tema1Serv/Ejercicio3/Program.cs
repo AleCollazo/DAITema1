@@ -11,29 +11,63 @@ namespace Ejercicio3
     public delegate int Incremento(int i);
     class Program
     {
-
+        static int i = 0;
+        static readonly object l = new object();
+        static bool flag = true;
 
         static void Main(string[] args)
         {
 
             new Thread(()=>
             {
-                for (int i = 0; i < 100; i++)
+                while(Math.Abs(i) < 100)
                 {
-                    Console.Write("{0} ",i);
+                    lock (l)
+                    {
+                        if (flag)
+                        {
+                            i++;
+                            Console.Write("Thread 1: {0}\n", i);
+                            if (Math.Abs(i) < 100) {
+                                flag = false;
+                                Monitor.Pulse(l);
+                            }
+                        }
+                        //else Monitor.Pulse(l);
+                    }
                 }
+                //flag = false;
+                
             }).Start();
 
             new Thread(() =>
             {
-                for (int i = 0; i > -100; i--)
+                while (Math.Abs(i) < 100)
                 {
-                    Console.Write("{0} ", i);
+                    lock (l) {
+                        if (flag) {
+                            i--;
+                            Console.Write("Thread 2: {0}\n", i);
+                            if (Math.Abs(i) < 100)
+                            {
+                                flag = false;
+                                Monitor.Pulse(l);
+                            }
+                        }
+                        //else Monitor.Pulse(l);
+                    }
                 }
+                //flag = false;
             }).Start();
 
-            Console.ReadKey();
-
+            //h1.Join();
+            //h2.join();
+            lock (l)
+            {
+                Monitor.Wait(l);
+                Console.WriteLine("The thread {0} win", i == 100 ? 1 : 2);
+                Console.ReadKey();
+            }
         }
 
     }

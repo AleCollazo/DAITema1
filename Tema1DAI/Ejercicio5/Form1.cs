@@ -20,7 +20,9 @@ namespace Ejercicio5
 
         private bool init = false;
 
-        private static TextBox texBoxForm1;
+        private TextBox textBoxForm1;
+
+        //private static TextBox textBoxForm1;
 
         public Form1()
         {
@@ -30,7 +32,7 @@ namespace Ejercicio5
             tbxWidthInit = tbx.Width;
             formHeightMin = this.Height;
             formWidthMin = this.Width;
-            texBoxForm1 = tbx;
+            textBoxForm1 = tbx;
         }
 
         private void cambioFamiliaFuente(object sender, EventArgs e)
@@ -117,16 +119,16 @@ namespace Ejercicio5
 
         private void btnSeleccion_Click(object sender, EventArgs e)
         {
-            new Form2().Show();
+            new Form2(this).Show();
         }
 
-        public static void modificarSeleccion(int inicio, int longitud)
+        public void modificarSeleccion(int inicio, int longitud)
         {
             try
             {
-                texBoxForm1.SelectionStart = inicio;
-                texBoxForm1.SelectionLength = longitud;
-                texBoxForm1.Focus();
+                textBoxForm1.SelectionStart = inicio;
+                textBoxForm1.SelectionLength = longitud;
+                textBoxForm1.Focus();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -135,14 +137,14 @@ namespace Ejercicio5
             }
         }
 
-        public static int getInicioSeleccion()
+        public int getInicioSeleccion()
         {
-            return texBoxForm1.SelectionStart;
+            return textBoxForm1.SelectionStart;
         }
 
-        public static int getLongitudSeleccion()
+        public int getLongitudSeleccion()
         {
-            return texBoxForm1.SelectionLength;
+            return textBoxForm1.SelectionLength;
         }
 
     }

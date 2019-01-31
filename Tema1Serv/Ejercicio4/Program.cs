@@ -30,18 +30,18 @@ namespace Ejercicio4
             //Thread.Sleep(random.Next(1000, 5000));
 
             while (flag) {
-               
-                    lock (l) {
+                lock (l)
+                {
                     if (flag)
                     {
                         avance += 1;// random.Next(1, 10);
                         Console.SetCursorPosition(0, idHorse + 3);
                         Console.Write("{0,"+avance+"}", dorsalCaballo);
-                        if (avance >= 80)
+                        if (avance > 80)
                         {
                             flag = false;
                             winnerHorseId = idHorse;
-                         //   Monitor.Wait(l);
+                            Monitor.Pulse(l);
                         }
                     }
                     Thread.Sleep(5);// random.Next(1000, 5000));
@@ -106,24 +106,21 @@ namespace Ejercicio4
                 horses[i].Start(new Horse(i, rand));
             }
 
-            while (true)
-            {
-                if (winnerHorseId != -1) {
-                    int caballoGanador = winnerHorseId + 1;
-                    Console.SetCursorPosition(0, 20);
-                    if (caballoEscogido == caballoGanador)
-                    {
-                        Console.WriteLine("¡Tu caballo ha ganado!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Tu caballo ha perdido");
-                        Console.WriteLine("El caballo ganador es el caballo número {0}", caballoGanador);
-                    }
-                        
-                    Console.Read();
-                    break;
+            lock (l) {
+                Monitor.Wait(l);
+                int caballoGanador = winnerHorseId + 1;
+                Console.SetCursorPosition(0, 20);
+                if (caballoEscogido == caballoGanador)
+                {
+                    Console.WriteLine("¡Tu caballo ha ganado!");
                 }
+                else
+                {
+                    Console.WriteLine("Tu caballo ha perdido");
+                    Console.WriteLine("El caballo ganador es el caballo número {0}", caballoGanador);
+                }
+
+                Console.ReadLine();
             }
         }
     }

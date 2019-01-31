@@ -1,4 +1,4 @@
-﻿#define teclaChar
+﻿//#define teclaChar
 
 using System;
 using System.Collections.Generic;
@@ -31,17 +31,30 @@ namespace Ejercicio2
             this.Text = string.Format("{0}", titulo);
         }
 
-        private void button2_MouseMove(object sender, MouseEventArgs e)
+      
+        private void button1_MouseMove(object sender, MouseEventArgs e)
         {
             Point punto = ((Button)sender).Location;
             this.Text = string.Format("{2}  Eje x: {0}  Eje y: {1}", punto.X + e.X, punto.Y + e.Y, titulo);
         }
 
-
         private void Form1_MouseUp(object sender, MouseEventArgs e)
         {
-            btnDerecho.BackColor = DefaultBackColor;
-            btnIzquierdo.BackColor = DefaultBackColor;
+            if (MouseButtons.Right.Equals(e.Button))
+            {
+                btnDerecho.BackColor = DefaultBackColor;
+            }
+            else if (MouseButtons.Left.Equals(e.Button))
+            {
+                btnIzquierdo.BackColor = DefaultBackColor;
+            }
+            else
+            {
+                btnDerecho.BackColor = DefaultBackColor;
+                btnIzquierdo.BackColor = DefaultBackColor;
+            }
+
+            
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -61,11 +74,7 @@ namespace Ejercicio2
             }
         }
 
-        private void button1_MouseMove(object sender, MouseEventArgs e)
-        {
-            Point punto = ((Button)sender).Location;
-            this.Text = string.Format("{2}  Eje x: {0}  Eje y: {1}", punto.X + e.X, punto.Y + e.Y, titulo);
-        }
+      
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

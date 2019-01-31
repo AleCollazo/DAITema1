@@ -12,9 +12,12 @@ namespace Ejercicio5
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        Form1 form1;
+
+        public Form2(Form1 form1)
         {
             InitializeComponent();
+            this.form1 = form1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,13 +32,13 @@ namespace Ejercicio5
             catch (FormatException) { MessageBox.Show("Introduce valores numéricos enteros.", "Valor numérico", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             catch (OverflowException) {  }
 
-            Form1.modificarSeleccion(inicioSeleccion, longitudSeleccion);
+            form1.modificarSeleccion(inicioSeleccion, longitudSeleccion);
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            tbxInicio.Text = Form1.getInicioSeleccion().ToString();
-            tbxSeleccion.Text = Form1.getLongitudSeleccion().ToString();
+            tbxInicio.Text = form1.getInicioSeleccion().ToString();
+            tbxSeleccion.Text = form1.getLongitudSeleccion().ToString();
         }
     }
 }

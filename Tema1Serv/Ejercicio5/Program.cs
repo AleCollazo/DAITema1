@@ -10,7 +10,7 @@ namespace Ejercicio5
     class Program
     {
         static int counter = 0;
-        static readonly object l = new object();
+        //static readonly object l = new object();
 
         static void increment()
         {

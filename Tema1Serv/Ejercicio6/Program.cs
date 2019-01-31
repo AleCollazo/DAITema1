@@ -12,9 +12,10 @@ namespace Ejercicio6
         static readonly object l = new object();
         static bool isBlinking = true;
         static short playerNum = 0;
-        static int puntuation = 0;
+        static int score = 0;
         static bool isPaused = false;
         static bool starGame = true;
+        static bool isScore = false;
 
         static void Main(string[] args)
         {
@@ -27,17 +28,17 @@ namespace Ejercicio6
 
             Thread.Sleep(500);
 
-            Thread jugador1 = new Thread(player);
-            Thread jugador2 = new Thread(player);
+            Thread player1 = new Thread(player);
+            Thread player2 = new Thread(player);
             Thread threadDisplay = new Thread(display);
 
-            jugador1.Start(new Parameters(ram, 1, 10));
-            jugador2.Start(new Parameters(ram, 2, 40));
+            player1.Start(new Parameters(ram, 1, 10));
+            player2.Start(new Parameters(ram, 2, 40));
             threadDisplay.Start();
 
-            jugador1.IsBackground = true;
-            jugador2.IsBackground = true;
-            threadDisplay.IsBackground = true;
+            //player1.IsBackground = true;
+            //player2.IsBackground = true;
+            //threadDisplay.IsBackground = true;
 
             
 
@@ -50,12 +51,12 @@ namespace Ejercicio6
                         {
                             if (isBlinking)
                             {
-                                puntuation += 1;
+                                score += 1;
                                 isBlinking = false;
                             }
                             else
                             {
-                                puntuation += 5;
+                                score += 5;
                             }
                             starGame = false;
                             writePuntuation();
@@ -64,12 +65,12 @@ namespace Ejercicio6
                         {
                             if (isBlinking)
                             {
-                                if (starGame) puntuation -= 1;
-                                else puntuation -= 5;
+                                if (starGame) score -= 1;
+                                else score -= 5;
                             }
                             else
                             {
-                                puntuation -= 1;
+                                score -= 1;
                                 isBlinking = true;
                             }
                             starGame = false;
@@ -77,20 +78,25 @@ namespace Ejercicio6
                         }
                         playerNum = 0;
                         Monitor.Pulse(l);
+                        Monitor.Pulse(l);
                         isPaused = false;
 
-                        
 
-                        if (puntuation >= 20 || puntuation <= -20)
+                        if (score >= 20 || score <= -20)
                         {
                             break;
+                        }
+                        else
+                        {
+                            Monitor.Wait(l);
+                            isScore = false;
                         }
                     }
                 }
             }
             Console.SetCursorPosition(5,20);
             Console.WriteLine("The winner is {0}!!!",
-                puntuation >= 20? "Player 1":"Player 2");
+                score >= 20? "Player 1":"Player 2");
             Console.ReadKey();
 
         }
@@ -105,7 +111,7 @@ namespace Ejercicio6
 
             Random ram = ((Parameters)param).ram;
 
-            while (true) {
+            while (Math.Abs(score) < 20) {
                 lock (l) {
                     num = ram.Next(1, 10);
 
@@ -116,9 +122,15 @@ namespace Ejercicio6
                     Console.Write(num);
                     if (num == 5 || num == 7)
                     {
+                        if (isScore)
+                        {
+                            Monitor.Wait(l);
+                        }
+                        isScore = true;
                         playerNum = plaNun;
                     }
                     isPaused = true;
+                    Monitor.Pulse(l);
                     Monitor.Wait(l);
                 }
                 Thread.Sleep(200 * num);
@@ -129,7 +141,7 @@ namespace Ejercicio6
         static void display()
         {
             int cont = 0;
-            while (true)
+            while (Math.Abs(score) < 20)
             {
                 lock (l)
                 {
@@ -158,7 +170,7 @@ namespace Ejercicio6
             Console.SetCursorPosition(37, 8);
             Console.Write("Player 2");
             Console.SetCursorPosition(10, 3);
-            Console.Write("Puntuación:");
+            Console.Write("Score:");
         }
 
         static void writePuntuation()
@@ -167,7 +179,7 @@ namespace Ejercicio6
             Console.Write("{0,3}", " ");
             Thread.Sleep(50);
             Console.SetCursorPosition(23, 3);
-            Console.Write("{0,3}", puntuation);
+            Console.Write("{0,3}", score);
         }
 
         private class Parameters
