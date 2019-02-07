@@ -86,13 +86,21 @@ namespace Ejercicio1
                     break;
             }
 
-            LinearGradientBrush b = new LinearGradientBrush(
-                new PointF(0f,0f), new PointF(2f,5f), this.ForeColor, Color.White);
+            LinearGradientBrush c = new LinearGradientBrush(
+              new PointF(0f, 0f), new PointF(2f, 5f), this.ForeColor, Color.White);
+            g.DrawRectangle(new Pen(c), 0, 0, this.Width, this.Height);
+
+            SolidBrush b = new SolidBrush(this.ForeColor);
+            //LinearGradientBrush c = new LinearGradientBrush(
+            //  new PointF(0f,0f), new PointF(2f,5f), this.ForeColor, Color.White);
+            g.DrawString(this.Text, this.Font, b, offsetX, offsetY);
             Size tam = g.MeasureString(this.Text, this.Font).ToSize();
             this.Size = new Size(tam.Width + offsetX + grosor, tam.Height + offsetY * 2);
-            g.DrawString(this.Text, this.Font, b, offsetX, offsetY);
-            //g.DrawRectangle(new Pen);
+
+            
+
             b.Dispose();
+            c.Dispose();
         }
 
         protected override void OnTextChanged(EventArgs e)
