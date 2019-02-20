@@ -28,44 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.lblTiempo = new System.Windows.Forms.Label();
+            this.btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // lblTiempo
             // 
             this.lblTiempo.AutoSize = true;
-            this.lblTiempo.Location = new System.Drawing.Point(4, 28);
+            this.lblTiempo.Location = new System.Drawing.Point(3, 0);
             this.lblTiempo.Name = "lblTiempo";
-            this.lblTiempo.Size = new System.Drawing.Size(35, 13);
+            this.lblTiempo.Size = new System.Drawing.Size(22, 13);
             this.lblTiempo.TabIndex = 1;
-            this.lblTiempo.Text = "label1";
+            this.lblTiempo.Text = "0:0";
+            // 
+            // btn
+            // 
+            this.btn.Location = new System.Drawing.Point(-1, 34);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(75, 23);
+            this.btn.TabIndex = 2;
+            this.btn.UseVisualStyleBackColor = true;
             // 
             // ControlMultimedia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btn);
             this.Controls.Add(this.lblTiempo);
-            this.Controls.Add(this.button1);
             this.Name = "ControlMultimedia";
-            this.Size = new System.Drawing.Size(297, 150);
+            this.Size = new System.Drawing.Size(77, 89);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ControlMultimedia_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblTiempo;
+        private System.Windows.Forms.Button btn;
     }
 }

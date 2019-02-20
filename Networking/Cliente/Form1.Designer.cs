@@ -34,6 +34,7 @@
             this.btnTodo = new System.Windows.Forms.Button();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lbl = new System.Windows.Forms.Label();
+            this.btnCambiarIp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHora
@@ -84,11 +85,22 @@
             this.lbl.Size = new System.Drawing.Size(0, 13);
             this.lbl.TabIndex = 4;
             // 
+            // btnCambiarIp
+            // 
+            this.btnCambiarIp.Location = new System.Drawing.Point(107, 246);
+            this.btnCambiarIp.Name = "btnCambiarIp";
+            this.btnCambiarIp.Size = new System.Drawing.Size(75, 23);
+            this.btnCambiarIp.TabIndex = 5;
+            this.btnCambiarIp.Text = "Cambiar IP";
+            this.btnCambiarIp.UseVisualStyleBackColor = true;
+            this.btnCambiarIp.Click += new System.EventHandler(this.btnCambiarIp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 292);
+            this.Controls.Add(this.btnCambiarIp);
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnTodo);
@@ -112,6 +124,7 @@
         private System.Windows.Forms.Button btnTodo;
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Button btnCambiarIp;
     }
 }
 

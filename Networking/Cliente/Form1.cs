@@ -23,6 +23,7 @@ namespace Cliente
         NetworkStream ns;
         StreamReader sr;
         StreamWriter sw;
+        private Form2 form2;
 
         public Form1()
         {
@@ -32,11 +33,16 @@ namespace Cliente
         private void cliente(string userMsg)
         {
 
-           
-            sw.WriteLine(userMsg);
-            sw.Flush();
-
-            lbl.Text = sr.ReadLine(); 
+            try
+            {
+                sw.WriteLine(userMsg);
+                sw.Flush();
+                lbl.Text = sr.ReadLine();
+            }
+            catch (IOException)
+            {
+                lbl.Text = "Servidor apagado";
+            }
         }
 
         private void btnHora_Click(object sender, EventArgs e)
@@ -57,12 +63,6 @@ namespace Cliente
         private void btnApagar_Click(object sender, EventArgs e)
         {
             cliente("APAGAR");
-            sr.Close();
-            sw.Close();
-            ns.Close();
-
-            server.Close();
-            this.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,6 +83,14 @@ namespace Cliente
 
             msg = sr.ReadLine();
             lbl.Text = msg;
+        }
+
+        private void btnCambiarIp_Click(object sender, EventArgs e)
+        {
+            form2 = new Form2();
+            form2.ShowDialog();
+
+
         }
     }
 }
