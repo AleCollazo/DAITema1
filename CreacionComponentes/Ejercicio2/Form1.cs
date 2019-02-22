@@ -60,6 +60,7 @@ namespace Ejercicio2
             Image image = new Bitmap(imageFiles[cont].FullName);
             pbx.Image = image;
             pbx.Size = image.Size;
+            //this.Size = new Size(200 + image.Width, image.Height> 500? image.Height+ 100:500);
             controlMultimedia.TextLblTiempoYY++;
         }
 
@@ -68,14 +69,20 @@ namespace Ejercicio2
             MessageBox.Show(exceptionTxt, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void controlMultimedia_Pulsacion(object sender, EventArgs e)
+
+        private void controlMultimedia_DesbordaTiempo(object sender, EventArgs e)
+        {
+            controlMultimedia.TextLblTiempoXX++;
+        }
+
+        private void controlMultimedia_Pulsacion(object sender, PulsacionEventArgs e)
         {
             try
             {
                 directoryName = tbxDir.Text;
                 if (directoryName != "")
                 {
-                    if (((PulsacionEventArgs)e).play)
+                    if (e.play)
                     {
                         directoryInfo = new DirectoryInfo(directoryName);
                         obtenerArchivosImagenes();
@@ -91,11 +98,6 @@ namespace Ejercicio2
             catch (System.Security.SecurityException ex) { mensajeError(ex.Message); }
             catch (PathTooLongException ex) { mensajeError(ex.Message); }
             catch (DirectoryNotFoundException ex) { mensajeError(ex.Message); }
-        }
-
-        private void controlMultimedia_DesbordaTiempo(object sender, EventArgs e)
-        {
-            controlMultimedia.TextLblTiempoXX++;
         }
     }
 }

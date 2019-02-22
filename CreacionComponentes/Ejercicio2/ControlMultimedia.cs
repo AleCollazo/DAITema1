@@ -14,7 +14,7 @@ namespace Ejercicio2
     public partial class ControlMultimedia : UserControl
     {
 
-        private Image imgPlay, imgPause, imgBoton;
+        private Image imgPlay, imgPause;
         private int imgHeight = 70, imgWidth = 70, margin = 10;
         private int cont = 0;
 
@@ -67,64 +67,59 @@ namespace Ejercicio2
         public ControlMultimedia()
         {
             InitializeComponent();
+            btn.Size = new Size(imgWidth, imgHeight);
+
             imgPlay = Properties.Resources.play;
             imgPlay = new Bitmap(imgPlay, imgWidth, imgHeight);
-            imgBoton = imgPlay;
+            btn.Image = imgPlay;
 
 
             imgPause = Properties.Resources.pause;
             imgPause = new Bitmap(imgPause, imgWidth, imgHeight);
         }
 
-        public event EventHandler DesbordaTiempo;
-        public event EventHandler Pulsacion;
-
-
-        private void ControlMultimedia_MouseClick(object sender, MouseEventArgs e)
+        private void btn_Click(object sender, EventArgs e)
         {
             PulsacionEventArgs pulsacionesArgs = new PulsacionEventArgs();
-            if (e.Y > lblTiempo.Height + margin*2 )
+
+            cont++;
+            if (cont % 2 == 0)
             {
-                cont++;
-                if (cont % 2 == 0)
-                {
-                    imgBoton = imgPlay;
-                    pulsacionesArgs.play = false;
-                }
-                else
-                {
-                    imgBoton = imgPause;
-                    pulsacionesArgs.play = true;
-                }
+                btn.Image = imgPlay;
+                pulsacionesArgs.play = false;
             }
+            else
+            {
+                btn.Image = imgPause;
+                pulsacionesArgs.play = true;
+            }
+
             Pulsacion?.Invoke(this, pulsacionesArgs);
             Refresh();
         }
+
+        public event EventHandler DesbordaTiempo;
+        public event EventHandler<PulsacionEventArgs> Pulsacion;
+
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            Graphics g = e.Graphics;
-
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-
-            g.DrawImage(imgBoton,
-                margin,
-                lblTiempo.Height + 2 * margin);
-
             this.Size = new Size(
-                 imgBoton.Width + 2 * margin,
-                lblTiempo.Height + imgBoton.Height + 3 * margin);
+                 btn.Image.Width + 2 * margin,
+                lblTiempo.Height + btn.Image.Height + 3 * margin);
 
 
             lblTiempo.Location = new Point((this.Size.Width - lblTiempo.Width) / 2, margin);
+
+            btn.Location = new Point((this.Size.Width - btn.Width)/2, lblTiempo.Height + 2*margin);
 
         }
 
     }
 
-    class PulsacionEventArgs : EventArgs
+    public class PulsacionEventArgs : EventArgs
     {
         public bool play;
     }

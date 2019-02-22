@@ -1,4 +1,4 @@
-﻿namespace MyEchoService
+﻿namespace NuevoServicio
 {
     partial class ProjectInstaller
     {
@@ -39,8 +39,9 @@
             // 
             // serviceInstaller1
             // 
-            this.serviceInstaller1.Description = "You tell me & I tell you";
-            this.serviceInstaller1.ServiceName = "TELODIJEServer";
+            this.serviceInstaller1.Description = "Servicio simple de prueba";
+            this.serviceInstaller1.DisplayName = "Un servicio simple";
+            this.serviceInstaller1.ServiceName = "ServicioSimple";
             // 
             // ProjectInstaller
             // 

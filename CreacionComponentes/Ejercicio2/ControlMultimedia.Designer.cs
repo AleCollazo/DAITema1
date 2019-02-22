@@ -48,6 +48,7 @@
             this.btn.Size = new System.Drawing.Size(75, 23);
             this.btn.TabIndex = 2;
             this.btn.UseVisualStyleBackColor = true;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // ControlMultimedia
             // 
@@ -59,7 +60,6 @@
             this.Controls.Add(this.lblTiempo);
             this.Name = "ControlMultimedia";
             this.Size = new System.Drawing.Size(77, 89);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ControlMultimedia_MouseClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 

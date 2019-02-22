@@ -61,6 +61,7 @@
             this.tbxDir.Name = "tbxDir";
             this.tbxDir.Size = new System.Drawing.Size(100, 20);
             this.tbxDir.TabIndex = 15;
+            this.tbxDir.Text = "C:\\Users\\alex-\\Downloads";
             // 
             // pbx
             // 
@@ -74,14 +75,14 @@
             // 
             this.controlMultimedia.AutoSize = true;
             this.controlMultimedia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.controlMultimedia.Location = new System.Drawing.Point(12, 116);
+            this.controlMultimedia.Location = new System.Drawing.Point(12, 138);
             this.controlMultimedia.Name = "controlMultimedia";
             this.controlMultimedia.Size = new System.Drawing.Size(90, 113);
             this.controlMultimedia.TabIndex = 18;
-            this.controlMultimedia.TextLblTiempoXX = 99;
-            this.controlMultimedia.TextLblTiempoYY = 34;
+            this.controlMultimedia.TextLblTiempoXX = 0;
+            this.controlMultimedia.TextLblTiempoYY = 0;
             this.controlMultimedia.DesbordaTiempo += new System.EventHandler(this.controlMultimedia_DesbordaTiempo);
-            this.controlMultimedia.Pulsacion += new System.EventHandler(this.controlMultimedia_Pulsacion);
+            this.controlMultimedia.Pulsacion += new System.EventHandler<Ejercicio2.PulsacionEventArgs>(this.controlMultimedia_Pulsacion);
             // 
             // controlMultimedia3
             // 
@@ -104,7 +105,7 @@
             this.controlMultimedia2.Location = new System.Drawing.Point(445, 1087);
             this.controlMultimedia2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.controlMultimedia2.Name = "controlMultimedia2";
-            this.controlMultimedia2.Size = new System.Drawing.Size(237, 267);
+            this.controlMultimedia2.Size = new System.Drawing.Size(237, 281);
             this.controlMultimedia2.TabIndex = 11;
             this.controlMultimedia2.TextLblTiempoXX = 0;
             this.controlMultimedia2.TextLblTiempoYY = 0;
@@ -126,8 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(558, 387);
+            this.ClientSize = new System.Drawing.Size(1208, 782);
             this.Controls.Add(this.controlMultimedia);
             this.Controls.Add(this.pbx);
             this.Controls.Add(this.tbxDir);
