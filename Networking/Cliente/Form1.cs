@@ -53,13 +53,13 @@ namespace Cliente
             }
             catch (NullReferenceException)
             {
-                lbl.Text = "Error";
+                lbl.Text = "No se encontró el servidor";
             }
         }
 
+        // Utilizar la propiedad Text/Tag del sender para tener solo una función
         private void btnHora_Click(object sender, EventArgs e)
         {
-            
             cliente("HORA");
         }
 

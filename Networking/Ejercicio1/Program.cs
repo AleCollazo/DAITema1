@@ -15,11 +15,11 @@ namespace Ejercicio1
         {
             
             string msg;
-            int puerto = 6000000;//55814;
+            int puerto = 55814;
             bool flag = true;
 
             IPEndPoint ie;
-            Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Socket s = null;
 
             do
             {
@@ -31,24 +31,21 @@ namespace Ejercicio1
 
                 try
                 {
-                    Console.WriteLine(puerto);
                     ie = new IPEndPoint(IPAddress.Any, puerto);
+                    s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
                     s.Bind(ie);
                     
-
-                    Console.WriteLine("No salta exception");
                     flag = false;
+
+                    Console.WriteLine("Puerto: {0}",puerto);
                 }
                 catch (SocketException)
                 {
                     puerto++;
-                    Console.WriteLine("Dentro");
-                    
+                    s.Close();
                 }
             } while (flag);
-
-            Console.WriteLine("fuera");
 
 
             s.Listen(10);

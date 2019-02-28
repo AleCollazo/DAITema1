@@ -38,11 +38,11 @@ namespace Cliente
             }
             catch (FormatException)
             {
-                errorIP = true;
+                errorPuerto = true;
             }
             catch (OverflowException)
             {
-                errorIP = true;
+                errorPuerto = true;
             }
 
             try
