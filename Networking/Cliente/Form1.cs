@@ -15,10 +15,11 @@ namespace Cliente
 {
     public partial class Form1 : Form
     {
-        const string IP_SERVER = "127.0.0.1";
+        string IpServer = "127.0.0.1";
+        int puerto = 31416;
         string msg;
-        IPEndPoint ie = new IPEndPoint(IPAddress.Parse(IP_SERVER),31416);
-        Socket server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        IPEndPoint ie;
+        Socket server;
 
         NetworkStream ns;
         StreamReader sr;
@@ -28,6 +29,7 @@ namespace Cliente
         public Form1()
         {
             InitializeComponent();
+            ie = new IPEndPoint(IPAddress.Parse(IpServer), puerto);
         }
 
         private void cliente(string userMsg)
@@ -35,18 +37,29 @@ namespace Cliente
 
             try
             {
+                conectarse(ie);
                 sw.WriteLine(userMsg);
                 sw.Flush();
                 lbl.Text = sr.ReadLine();
+                cerrarConexion();
             }
             catch (IOException)
             {
                 lbl.Text = "Servidor apagado";
             }
+            catch (ObjectDisposedException)
+            {
+               lbl.Text = "Dirección no disponible";
+            }
+            catch (NullReferenceException)
+            {
+                lbl.Text = "Error";
+            }
         }
 
         private void btnHora_Click(object sender, EventArgs e)
         {
+            
             cliente("HORA");
         }
 
@@ -65,8 +78,29 @@ namespace Cliente
             cliente("APAGAR");
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        private void btnCambiarIp_Click(object sender, EventArgs e)
         {
+            form2 = new Form2();
+            DialogResult result = form2.ShowDialog();
+            if (DialogResult.OK == result) {
+                ie = form2.getIPEndPoint();
+                
+            }
+        }
+
+        private void cerrarConexion()
+        {
+            sw.Close();
+            sr.Close();
+            ns.Close();
+            server.Close();
+        }
+
+        private void conectarse(IPEndPoint ie)
+        {
+            
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 server.Connect(ie);
@@ -81,16 +115,7 @@ namespace Cliente
             sr = new StreamReader(ns);
             sw = new StreamWriter(ns);
 
-            msg = sr.ReadLine();
-            lbl.Text = msg;
-        }
-
-        private void btnCambiarIp_Click(object sender, EventArgs e)
-        {
-            form2 = new Form2();
-            form2.ShowDialog();
-
-
+            
         }
     }
 }

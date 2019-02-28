@@ -11,20 +11,50 @@ namespace Ejercicio1
 {
     class Servidor
     {
-        
-
         static void Main(string[] args)
         {
-            IPEndPoint ie = new IPEndPoint(IPAddress.Any, 31416);
+            
+            string msg;
+            int puerto = 6000000;//55814;
+            bool flag = true;
 
-            try
+            IPEndPoint ie;
+            Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+            do
             {
-                Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                flag = true;
+                if (puerto > 65535 || puerto < 1024)
+                {
+                    puerto = 1024;
+                }
 
-                s.Bind(ie);
+                try
+                {
+                    Console.WriteLine(puerto);
+                    ie = new IPEndPoint(IPAddress.Any, puerto);
 
-                s.Listen(10);
+                    s.Bind(ie);
+                    
 
+                    Console.WriteLine("No salta exception");
+                    flag = false;
+                }
+                catch (SocketException)
+                {
+                    puerto++;
+                    Console.WriteLine("Dentro");
+                    
+                }
+            } while (flag);
+
+            Console.WriteLine("fuera");
+
+
+            s.Listen(10);
+
+            while (true)
+            {
                 Socket sClient = s.Accept();
 
                 IPEndPoint ieClient = (IPEndPoint)sClient.RemoteEndPoint;
@@ -35,50 +65,43 @@ namespace Ejercicio1
 
                 StreamReader sr = new StreamReader(ns);
                 StreamWriter sw = new StreamWriter(ns);
-                string welcome = "Bienvenido a mi servidor";
 
-                sw.WriteLine(welcome);
-                sw.Flush();
 
-                string msg = "";
-
-                while (true)
+                try
                 {
-                    try
-                    {
-                        msg = sr.ReadLine().ToUpper();
+                    msg = sr.ReadLine().ToUpper();
 
-                        if (msg == "APAGAR")
-                        {
-                            break;
-                        }
-
-                        DateTime dateTime = DateTime.Now;
-
-                        if (msg == "FECHA")
-                        {
-                            sw.WriteLine("{0}/{1}/{2}",
-                                dateTime.Day, dateTime.Month, dateTime.Year);
-                        }
-                        if (msg == "HORA")
-                        {
-                            sw.WriteLine("{0}:{1}:{2}", dateTime.Hour, dateTime.Minute, dateTime.Second);
-                        }
-                        if (msg == "TODO")
-                        {
-                            sw.WriteLine("{0}/{1}/{2}   {4}:{5}:{6}",
-                                dateTime.Day, dateTime.Month, dateTime.Year,
-                                Environment.NewLine,
-                                dateTime.Hour, dateTime.Minute, dateTime.Second);
-                        }
-
-                        sw.Flush();
-                    }
-                    catch (IOException)
+                    if (msg == "APAGAR")
                     {
                         break;
                     }
+
+                    DateTime dateTime = DateTime.Now;
+
+                    if (msg == "FECHA")
+                    {
+                        sw.WriteLine("{0}/{1}/{2}",
+                            dateTime.Day, dateTime.Month, dateTime.Year);
+                    }
+                    if (msg == "HORA")
+                    {
+                        sw.WriteLine("{0}:{1}:{2}", dateTime.Hour, dateTime.Minute, dateTime.Second);
+                    }
+                    if (msg == "TODO")
+                    {
+                        sw.WriteLine("{0}/{1}/{2}   {4}:{5}:{6}",
+                            dateTime.Day, dateTime.Month, dateTime.Year,
+                            Environment.NewLine,
+                            dateTime.Hour, dateTime.Minute, dateTime.Second);
+                    }
+
+                    sw.Flush();
                 }
+                catch (IOException)
+                {
+                    break;
+                }
+
                 Console.WriteLine("Client disconnected. \nConnection closed");
 
                 sw.Close();
@@ -87,13 +110,10 @@ namespace Ejercicio1
                 ns.Close();
 
                 sClient.Close();
-                s.Close();
-            }
-            catch (SocketException)
-            {
-
             }
 
+                
+            s.Close();
         }
     }
 }

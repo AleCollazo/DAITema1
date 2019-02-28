@@ -22,7 +22,7 @@ namespace servidor
             IPEndPoint ie = new IPEndPoint(IPAddress.Any, 31416);
             Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            s.Bind(ie);
+            s.Bind(ie); // Comprobación puerto ocupado
             s.Listen(10);
             
             while (true)
@@ -52,7 +52,7 @@ namespace servidor
                             NetworkStream ns = new NetworkStream(cliente);
                             StreamWriter sw = new StreamWriter(ns);
                         
-                            lock (m)
+                          //  lock (m)
                             {
                                 sw.WriteLine(mensaje);
                                 sw.Flush();
@@ -114,12 +114,15 @@ namespace servidor
                         lock (l)
                         {
                             IPEndPoint ieUsuarios;
-                            lock (m) {
-                                for (int i = 0; i < clientes.Count; i++)
+                            //lock (m)
+                            {
+                                for (int i = 0; i < clientes.Count; i++) // La lista solo al que la pide
                                 {
                                     ieUsuarios = (IPEndPoint)clientes[i].Socket.RemoteEndPoint;
-                                    Thread hiloLista = new Thread(enviarMsg);
-                                    hiloLista.Start(string.Format("{0}@{1}:{2}",
+                                    //Thread hiloLista = new Thread(enviarMsg);
+                                    //hiloLista.Start(string.Format("{0}@{1}:{2}",
+                                    //    clientes[i].UserName, ieUsuarios.Address, ieUsuarios.Port));
+                                    enviarMsg(string.Format("{0}@{1}:{2}",
                                         clientes[i].UserName, ieUsuarios.Address, ieUsuarios.Port));
                                 }
                             }
